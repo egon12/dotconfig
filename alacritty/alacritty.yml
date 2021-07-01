@@ -66,20 +66,20 @@ font:
   # Style can be specified to pick a specific face.
   normal:
       #family: "Ubuntu Mono"
-    family: "Fira Code"
+    family: "monospace"
 
   # The bold font face
   bold:
-    family: "Fira Code"
+    family: "monospace"
     style: "Bold"
 
   # The italic font face
   italic:
-    family: "Fira Code"
+    family: "monospace"
     style: "Italic"
 
   # Point size of the font
-  size: 13.0
+  size: 14.0
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
