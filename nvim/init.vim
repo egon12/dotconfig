@@ -19,6 +19,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'https://gitlab.com/gi1242/vim-emoji-ab'
 
 " For golang development
+Plug 'https://github.com/Shougo/deoplete.nvim'
+Plug 'https://github.com/SirVer/ultisnips'
 Plug 'tomtom/quickfixsigns_vim'
 Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
@@ -54,11 +56,14 @@ au FileType html,php,markdown,mmd,text,mail,gitcommit
     \ runtime macros/emoji-ab.vim
 
 " Go development
+au FileType go call deoplete#enable()
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_metalinter_command = 'golangci-lint'
 nmap <Leader>t <Plug>(go-test-func)
 nmap <Leader>ta <Plug>(go-test)
 nmap <Leader>i <Plug>(go-imports)
-nmap <Leader>im <Plug>(go-implements)
+nmap <Leader>im :GoImpl<CR>
+nmap <Leader>il <Plug>(go-implements)
 nmap <Leader>a <Plug>(go-alternate-edit)
 nmap <Leader>rn <Plug>(go-rename)
 nmap <Leader>co <Plug>(go-coverage)
@@ -67,4 +72,7 @@ nmap <Leader>li <Plug>(go-metalinter)
 nmap <Leader>gr <Plug>(go-referrers)
 nmap <Leader>gc <Plug>(go-callers)
 nmap <Leader>gg <Plug>(go-generate)
+nmap <Leader>ie <Plug>(go-iferr)
+nmap <Leader>fs :GoFillStruct<CR>
+
 
