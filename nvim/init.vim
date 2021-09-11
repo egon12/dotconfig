@@ -22,7 +22,7 @@ Plug 'https://gitlab.com/gi1242/vim-emoji-ab'
 
 " For golang development
 Plug 'https://github.com/Shougo/deoplete.nvim'
-#Plug 'https://github.com/SirVer/ultisnips'
+" Plug 'https://github.com/SirVer/ultisnips'
 Plug 'tomtom/quickfixsigns_vim'
 Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
