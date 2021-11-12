@@ -28,6 +28,13 @@ Plug 'fatih/vim-go'
 Plug 'buoto/gotests-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 
+" For react-native development
+Plug 'pangloss/vim-javascript'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'maxmellon/vim-jsx-pretty'
+
+Plug 'https://github.com/nicwest/vim-http'
+
 call plug#end()
 
 " vim standard config
@@ -76,5 +83,7 @@ nmap <Leader>gc <Plug>(go-callers)
 nmap <Leader>gg <Plug>(go-generate)
 nmap <Leader>ie <Plug>(go-iferr)
 nmap <Leader>fs :GoFillStruct<CR>
+
+set nofixendofline
 
 
