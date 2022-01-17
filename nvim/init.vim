@@ -3,6 +3,9 @@ call plug#begin('~/.vim/pack/nvim/start')
 
 Plug 'https://github.com/lambdalisue/suda.vim'
 
+" For beter highlight
+Plug 'jaxbot/semantic-highlight.vim'
+
 " For agnostic navigation
 Plug 'scrooloose/nerdtree'
 Plug 'francoiscabrol/ranger.vim'
@@ -30,10 +33,21 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " For react-native development
 Plug 'pangloss/vim-javascript'
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'dense-analysis/ale'
+" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'ruanyl/vim-fixmyjs'
 " Plug 'maxmellon/vim-jsx-pretty'
+"
+"
+"Dart/Flutter
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'thosakwe/vim-flutter'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 Plug 'https://github.com/nicwest/vim-http'
+
+Plug 'https://github.com/sukima/xmledit'
 
 call plug#end()
 
@@ -84,6 +98,12 @@ nmap <Leader>gg <Plug>(go-generate)
 nmap <Leader>ie <Plug>(go-iferr)
 nmap <Leader>fs :GoFillStruct<CR>
 
+" xmllint
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
+
 set nofixendofline
 
-
+let g:ale_fixers = {}
+let g:ale_fixers.javascript = ['eslint']
+let g:ale_fix_on_save = 1
