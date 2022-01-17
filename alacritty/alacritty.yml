@@ -65,17 +65,18 @@ font:
   # The normal (roman) font face to use.
   # Style can be specified to pick a specific face.
   normal:
-      #family: "Ubuntu Mono"
-    family: "monospace"
+    family: "Ubuntu Mono"
+      #family: "monospace"
 
   # The bold font face
   bold:
-    family: "monospace"
+    family: "Ubuntu Mono"
+      #family: "monospace"
     style: "Bold"
 
   # The italic font face
   italic:
-    family: "monospace"
+    #family: "monospace"
     style: "Italic"
 
   # Point size of the font
