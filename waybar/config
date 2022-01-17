@@ -2,13 +2,13 @@
     "layer": "bottom",
     "name": "bottom",
     "position": "bottom",
-    "height": 20,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "height": 30,
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["temperature", "cpu", "memory", "disk"],
-    "modules-right": ["custom/bandwidth", "network", "pulseaudio", "tray", "battery", "custom/date", "custom/clock"],
+    "modules-right": ["custom/bandwidth", "network", "pulseaudio", "idle_inhibitor", "tray", "battery", "custom/date", "custom/clock"],
     "sway/workspaces": {
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "format": "{icon}",
         "format-icons": {
             "1": "",
@@ -24,14 +24,17 @@
             "default": ""
         },
 		"persistent_workspaces": {
-			"1": ["DP-1"],
+			"1": ["DP-1","HDMI-A-1"],
 			"2": ["eDP-1"],
-			"3": ["DP-1"],
-			"4": ["DP-1"],
-			"6": ["eDP-1"],
+			"3": ["DP-1","HDMI-A-1"],
+			"4": ["DP-1","HDMI-A-1"],
 			"8": ["eDP-1"],
+			"9": ["eDP-1"],
 		}
     },
+	"sway/mode": {
+		"format": "<span style=\"italic\">{}</span>"
+	},
     "custom/date": {
         "exec": "date +'%a, %d %b'",
         "interval": 5
@@ -75,6 +78,13 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "Disconnected ⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+	"idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
     },
     "tray": {
         "spacing": 10

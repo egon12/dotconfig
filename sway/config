@@ -25,10 +25,25 @@ set $menu wofi --show drun --allow-images | xargs swaymsg exec --
 #
 # Window configuration:
 #
-font pango:Source Code Pro 10
-default_border none
-hide_edge_borders both
-gaps inner 8 
+#font pango:Source Code Pro 10
+#default_border none
+#hide_edge_borders both
+#gaps inner 8 
+
+#
+# Titlebars
+#
+default_border pixel
+default_floating_border pixel
+hide_edge_borders smart
+#
+# Colors #93cee9
+#
+# class                     border  backgr. text  indicator child_border
+    client.focused          #4c7899 #285577 #ffffff #3daee9 #3daee9
+    client.focused_inactive #333333 #5f676a #ffffff #484e50 #5f676a
+    client.unfocused        #333333 #222222 #888888 #292d2e #222222
+    client.urgent           #2f343a #900000 #ffffff #900000 #900000 
 
 ### Output configuration
 #
@@ -40,43 +55,39 @@ gaps inner 8
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
-#output HDMI-A-1 {
-output DP-1 {
+output HDMI-A-1 {
+#output DP-1 {
 	position 1920,0
-	resolution 1920x1080 
+	#resolution 1920x1080 
+	resolution 2560x1080 
 	bg /home/nakama/Pictures/lands-bg.jpg fill
 	#transform 270 
 	#bg /home/nakama/Pictures/portrait-bg.jpg fill
 }
 
-
-#output eDP-1 disable
+output DP-1 {
+	#position 4480,0
+	resolution 1920x1080 
+	bg /home/nakama/Pictures/lands-bg.jpg fill
+}
 
 output eDP-1 {
 	resolution 1920x1080 
 	position 0,0
-	bg /home/nakama/Pictures/626808.jpg fill
+	bg /home/nakama/Pictures/lands-bg.jpg fill
 }
 
-#workspace 1 output HDMI-A-1
-#workspace 3 output HDMI-A-1
-#workspace 5 output HDMI-A-1
-#workspace 7 output HDMI-A-1
-#workspace 9 output HDMI-A-1
-
 workspace 2 output eDP-1
-workspace 6 output eDP-1
+#workspace 9 output eDP-1
 
-workspace 1 output DP-1
+workspace 1 output HDMI-A-1
 workspace 3 output DP-1
-workspace 4 output DP-1
-workspace 5 output DP-1
-
-#workspace 2 output DP-1
+#workspace 4 output HDMI-A-1
+#workspace 5 output HDMI-A-1
+#workspace 1 output DP-1
+#workspace 3 output DP-1
 #workspace 4 output DP-1
-#workspace 6 output DP-1
-#workspace 8 output DP-1
-#workspace 0 output DP-1
+#workspace 5 output DP-1
 
 
 ### Idle configuration
@@ -112,7 +123,7 @@ workspace 5 output DP-1
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input "10900:20557:G2Touch_Multi-Touch" {
-	# map_to_output HDMI-A-1
+	#map_to_output HDMI-A-1
 	map_to_output DP-1
 }
 
@@ -124,7 +135,7 @@ input "10900:20557:G2Touch_Multi-Touch" {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym Alt+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -259,17 +270,20 @@ bindsym $mod+r mode "resize"
 # Custom keybindings
 #
 bindsym XF86Display exec ~/.config/sway/scripts/kbdbacklight.sh
-bindsym XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks | grep "* index" | awk '{print $3}') +3%
-bindsym XF86AudioLowerVolume exec  pactl set-sink-volume $(pacmd list-sinks | grep "* index" | awk '{print $3}') -3%
-bindsym XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks | grep "* index" | awk '{print $3}') toggle
-bindsym Shift+XF86AudioMute exec pactl set-source-mute $(pacmd list-sources | grep "* index" | awk '{print $3}') toggle
-bindsym XF86AudioMicMute exec pactl set-source-mute $(pacmd list-sources | grep "* index" | awk '{print $3}') toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym $mod+F7 exec pactl set-sink-volume @DEFAULT_SINK@ +3%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym $mod+F6 exec pactl set-sink-volume @DEFAULT_SINK@ -3%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+#bindsym $mod+Shift+Xf86AudioMute exec pactl set-sink-port @DEFAULT_SINK@ analog-output-headphones;pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
+bindsym $mod+Shift+F5 exec pactl set-sink-port @DEFAULT_SINK@ analog-output-headphones
+bindsym $mod+Shift+F6 pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
 bindsym $mod+Shift+x exec systemctl hibernate
 bindsym Shift+Print exec grim -g "$(slurp)"
 bindsym Print exec grim
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec spt pb -t
+bindsym XF86AudioNext exec spt pb -n
+bindsym XF86AudioPrev exec spt pb -p
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set +5%
 
