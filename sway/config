@@ -133,6 +133,7 @@ input "10900:20557:G2Touch_Multi-Touch" {
 #
     # Start a terminal
     bindsym $mod+Return exec $term
+    #bindsym $mod+Return exec /home/nakama/.cargo/bin/neovide
 
     # Kill focused window
     bindsym Alt+q kill
@@ -277,7 +278,7 @@ bindsym $mod+F6 exec pactl set-sink-volume @DEFAULT_SINK@ -3%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 #bindsym $mod+Shift+Xf86AudioMute exec pactl set-sink-port @DEFAULT_SINK@ analog-output-headphones;pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
 bindsym $mod+Shift+F5 exec pactl set-sink-port @DEFAULT_SINK@ analog-output-headphones
-bindsym $mod+Shift+F6 pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
+bindsym $mod+Shift+F6 exec pactl set-source-port @DEFAULT_SOURCE@ analog-input-headset-mic
 bindsym $mod+Shift+x exec systemctl hibernate
 bindsym Shift+Print exec grim -g "$(slurp)"
 bindsym Print exec grim
