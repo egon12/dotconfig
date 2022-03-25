@@ -50,6 +50,7 @@ window:
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
   startup_mode: Windowed
+  opacity: 0.7
 
 scrolling:
   # maximum number of lines in the scrollback buffer. Specifying '0' will
@@ -267,8 +268,6 @@ visual_bell:
   color: '0xaa00aa'
   duration: 100
 
-# Background opacity
-background_opacity: 0.7
 
 # Key bindings
 #
