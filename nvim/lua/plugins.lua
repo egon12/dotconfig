@@ -58,6 +58,7 @@ return require('packer').startup(function()
   --image in kitty
   use 'edluffy/hologram.nvim'
 
+  use 'dag/vim-fish'
 
   ---- Simple plugins can be specified as strings
   --use '9mm/vim-closer'

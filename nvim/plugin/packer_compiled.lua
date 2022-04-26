@@ -147,6 +147,11 @@ _G.packer_plugins = {
     path = "/home/nakama/.local/share/nvim/site/pack/packer/start/vim-emoji-ab",
     url = "https://gitlab.com/gi1242/vim-emoji-ab"
   },
+  ["vim-fish"] = {
+    loaded = true,
+    path = "/home/nakama/.local/share/nvim/site/pack/packer/start/vim-fish",
+    url = "https://github.com/dag/vim-fish"
+  },
   ["vim-flutter"] = {
     loaded = true,
     path = "/home/nakama/.local/share/nvim/site/pack/packer/start/vim-flutter",

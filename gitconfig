@@ -20,7 +20,7 @@
 [url "git@github.com:"]
 	insteadOf = https://github.com/
 [mergetool "fugitive"]
-	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [pull]
 	ff = only
 [init]
