@@ -1,57 +1,4 @@
-" Plug
-call plug#begin('~/.vim/pack/nvim/start')
-
-" File Manager
-Plug 'https://github.com/lambdalisue/fern.vim'
-Plug 'https://github.com/lambdalisue/fern-renderer-nerdfont.vim'
-Plug 'https://github.com/lambdalisue/nerdfont.vim'
-Plug 'junegunn/fzf'
-Plug 'jremmen/vim-ripgrep'
-" Plug 'scrooloose/nerdtree'
-" Plug 'francoiscabrol/ranger.vim'
-
-Plug 'https://github.com/lambdalisue/suda.vim'
-
-" For beter highlight
-Plug 'jaxbot/semantic-highlight.vim'
-
-" For git project
-Plug 'tpope/vim-fugitive'
-
-" Color
-Plug 'dracula/vim', { 'as': 'dracula' }
-
-" For md
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npm install'  }
-Plug 'https://gitlab.com/gi1242/vim-emoji-ab'
-
-" For golang development
-" Plug 'https://github.com/Shougo/deoplete.nvim'
-" Plug 'https://github.com/SirVer/ultisnips'
-Plug 'tomtom/quickfixsigns_vim'
-Plug 'fatih/vim-go'
-Plug 'buoto/gotests-vim'
-Plug 'https://github.com/AndrewRadev/splitjoin.vim'
-
-" For react-native development
-Plug 'pangloss/vim-javascript'
-" Plug 'dense-analysis/ale'
-" Plug 'prettier/vim-prettier', { 'do': 'npm install' }
-" Plug 'ruanyl/vim-fixmyjs'
-" Plug 'maxmellon/vim-jsx-pretty'
-"
-"
-"Dart/Flutter
-Plug 'dart-lang/dart-vim-plugin'
-Plug 'thosakwe/vim-flutter'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
-
-Plug 'https://github.com/nicwest/vim-http'
-
-Plug 'https://github.com/sukima/xmledit'
-
-call plug#end()
+lua require('plugins')
 
 " vim standard config
 set number
@@ -94,21 +41,6 @@ nmap <Leader>cd :cd %:p:h<CR>
 " call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_metalinter_command = 'golangci-lint'
 
-nmap <Leader>t <Plug>(go-test-func)
-nmap <Leader>ta <Plug>(go-test)
-nmap <Leader>i <Plug>(go-imports)
-nmap <Leader>im :GoImpl<CR>
-nmap <Leader>il <Plug>(go-implements)
-nmap <Leader>a <Plug>(go-alternate-edit)
-nmap <Leader>rn <Plug>(go-rename)
-nmap <Leader>co <Plug>(go-coverage)
-nmap <Leader>cot <Plug>(go-coverage-toggle)
-nmap <Leader>li <Plug>(go-metalinter)
-nmap <Leader>gr <Plug>(go-referrers)
-nmap <Leader>gc <Plug>(go-callers)
-nmap <Leader>gg <Plug>(go-generate)
-nmap <Leader>ie <Plug>(go-iferr)
-nmap <C-P> :FZF<CR>
 
 " .............................................................................
 " lambdalisue/fern.vim
@@ -164,16 +96,25 @@ function! FernInit() abort
   "nmap <buffer><nowait> > <Plug>(fern-action-enter)
 endfunction
 
+function! SetJS() abort
+  set ts=2
+  set sw=2
+  set expandtab
+endfunction
+
 augroup FernGroup
   autocmd!
   autocmd FileType fern call FernInit()
 augroup END
 
+function! Image()
+
+
+endfunction
+
 autocmd TermOpen * setlocal nonumber norelativenumber
 
 set guifont=FiraCode\ Nerd\ Font\ Mono:h12
-
-
 
 " xmllint
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
@@ -184,3 +125,21 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "let g:ale_fixers = {}
 "let g:ale_fixers.javascript = ['eslint']
 "let g:ale_fix_on_save = 1
+
+nmap <Leader>t <Plug>(go-test-func)
+nmap <Leader>ta <Plug>(go-test)
+nmap <Leader>i <Plug>(go-imports)
+nmap <Leader>im :GoImpl<CR>
+nmap <Leader>il <Plug>(go-implements)
+nmap <Leader>a <Plug>(go-alternate-edit)
+nmap <Leader>rn <Plug>(go-rename)
+nmap <Leader>co <Plug>(go-coverage)
+nmap <Leader>cot <Plug>(go-coverage-toggle)
+nmap <Leader>li <Plug>(go-metalinter)
+nmap <Leader>gr <Plug>(go-referrers)
+nmap <Leader>gc <Plug>(go-callers)
+nmap <Leader>gg <Plug>(go-generate)
+nmap <Leader>ie <Plug>(go-iferr)
+nmap <Leader>js :call SetJS()
+
+nmap <C-P> :FZF<CR>
