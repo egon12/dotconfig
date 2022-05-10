@@ -34,7 +34,7 @@ return require('packer').startup(function()
   --   use 'https://github.com/Shougo/deoplete.nvim'
   --   use 'https://github.com/SirVer/ultisnips'
   use 'tomtom/quickfixsigns_vim'
-  use 'fatih/vim-go'
+  use 'egon12/vim-go'
   use 'buoto/gotests-vim'
   use 'https://github.com/AndrewRadev/splitjoin.vim'
 
