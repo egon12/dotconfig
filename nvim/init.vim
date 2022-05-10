@@ -130,12 +130,12 @@ nmap <Leader>t <Plug>(go-test-func)
 nmap <Leader>ta <Plug>(go-test)
 nmap <Leader>i <Plug>(go-imports)
 nmap <Leader>im :GoImpl<CR>
+nmap <Leader>l :GoTestLast<CR>
 nmap <Leader>il <Plug>(go-implements)
 nmap <Leader>a <Plug>(go-alternate-edit)
 nmap <Leader>rn <Plug>(go-rename)
 nmap <Leader>co <Plug>(go-coverage)
 nmap <Leader>cot <Plug>(go-coverage-toggle)
-nmap <Leader>li <Plug>(go-metalinter)
 nmap <Leader>gr <Plug>(go-referrers)
 nmap <Leader>gc <Plug>(go-callers)
 nmap <Leader>gg <Plug>(go-generate)
